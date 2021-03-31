@@ -1,2 +1,4 @@
 theme: jekyll-theme-cayman
+title: GSheet EVE Industry Helpers Homepage
+desription: Data updates will be picked up by Google Sheets file with help of the Apps Script.
 markdown: GFM
