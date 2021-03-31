@@ -1,20 +1,19 @@
 select 
-	invTypes.typeName,
-	invTypes.typeID,
-    invGroups.groupName, 
+	#invTypes.typeName,
+	invTypes.typeID, 
+    #invGroups.groupName, 
     industryBlueprints.maxProductionLimit,
     invTypes.basePrice, 
     invTypes.published, 
     industryActivity.time AS buildTime, 
     industryActivityProducts.quantity AS outputQuantity,
-    invTypesProduct.typeName AS productName,
+    #invTypesProduct.typeName AS productName,
     invTypesProduct.typeID AS productID,
     productGroup4.marketGroupName AS productGroup4Name,
     productGroup3.marketGroupName AS productGroup3Name, 
     productGroup2.marketGroupName AS productGroup2Name,
 	productGroup1.marketGroupName AS productGroup1Name,
     productGroup0.marketGroupName AS productGroup0Name
-
 
 ##
 # For future reference all columns written fully
@@ -49,28 +48,6 @@ select
     #invGroups.anchorable, 
     #invGroups.fittableNonSingleton, 
     #invGroups.published AS groupdPublished, 
-    
-    #invGrandParentGroups.*, 
-	#invGrandParentGroups.marketGroupID AS grandParentMarketGroupID, 
-    #invGrandParentGroups.parentGroupID AS grandGrandParentGroupID, 
-#    invGrandParentGroups.marketGroupName AS grandParentMarketGroupName, 
-    #invGrandParentGroups.description AS grandParentMarketGroupDescription, 
-    #invGrandParentGroups.iconID AS grandParentMarketGroupIconID, 
-    #invGrandParentGroups.hasTypes AS grandParentMarketGroupHasTypes, 
-    #invParentGroups.*, 
-	#invParentGroups.marketGroupID AS parentMarketGroupID, 
-    #invParentGroups.parentGroupID AS grandParentGroupID, 
-#    invParentGroups.marketGroupName AS parentMarketGroupName, 
-    #invParentGroups.description AS parentMarketGroupDescription, 
-    #invParentGroups.iconID AS parentMarketGroupIconID, 
-    #invParentGroups.hasTypes AS parentMarketGroupHasTypes, 
-    #invMarketGroups.*, 
-    #invMarketGroups.marketGroupID, 
-    #invMarketGroups.parentGroupID, 
-#    invMarketGroups.marketGroupName, 
-    #invMarketGroups.description AS marketGroupDescription, 
-    #invMarketGroups.iconID AS marketGroupIconID, 
-    #invMarketGroups.hasTypes AS marketGroupHasTypes, 
     
     #industryActivity.*, 
     #industryActivity.time AS buildTime, 
@@ -154,12 +131,6 @@ left join invMarketGroups productGroup2 on productGroup2.marketGroupID = product
 left join invMarketGroups productGroup3 on productGroup3.marketGroupID = productGroup2.parentGroupID
 left join invMarketGroups productGroup4 on productGroup4.marketGroupID = productGroup3.parentGroupID
 
-# Joining market groups for the blueprint with two parents
-#left join invMarketGroups on invMarketGroups.marketGroupID = invTypes.marketGroupID
-#left join invMarketGroups invParentGroups on invMarketGroups.parentGroupID = invParentGroups.marketGroupID
-#left join invMarketGroups invGrandParentGroups on invParentGroups.parentGroupID = invGrandParentGroups.marketGroupID
-
 # Do some final filtering and sorting
 where invTypes.published = 1
-
 order by productGroup4.marketGroupName, productGroup3.marketGroupName, productGroup2.marketGroupName, productGroup1.marketGroupName, productGroup0.marketGroupName;
