@@ -8,6 +8,7 @@ select
     industryActivity.time AS buildTime, 
     industryActivityProducts.quantity AS outputQuantity,
     invTypesProduct.typeName AS productName,
+    invTypesProduct.typeID AS productID,
     productGroup4.marketGroupName AS productGroup4Name,
     productGroup3.marketGroupName AS productGroup3Name, 
     productGroup2.marketGroupName AS productGroup2Name,
