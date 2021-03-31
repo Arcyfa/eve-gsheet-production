@@ -3,8 +3,6 @@ layout: default
 ---
 
 # Policy
-blah blah blah...
-
-We comply with https://developers.eveonline.com/resource/license-agreement
+In compliance with the CCP Third Party Developer Agreement as found at https://developers.eveonline.com/resource/license-agreement
 
 Arcyfa
