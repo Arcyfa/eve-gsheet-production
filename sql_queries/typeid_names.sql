@@ -1,5 +1,5 @@
 SELECT 
 	invTypes.typeID, 
-	invTypes.typeName 
+	CONCAT('"',invTypes.typeName,'"') AS typeName
 FROM invTypes
 where invTypes.typeID IS NOT NULL;
