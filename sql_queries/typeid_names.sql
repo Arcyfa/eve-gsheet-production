@@ -2,4 +2,4 @@ SELECT
 	invTypes.typeID, 
 	invTypes.typeName AS typeName
 FROM invTypes
-where invTypes.typeID IS NOT NULL;
+where invTypes.typeName NOT LIKE '%"%' and invTypes.typeName IS NOT NULL;
