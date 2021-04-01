@@ -1,5 +1,5 @@
 SELECT 
 	invTypes.typeID, 
-	CONCAT('"',invTypes.typeName,'"') AS typeName
+	QUOTE(invTypes.typeName) AS typeName
 FROM invTypes
 where invTypes.typeID IS NOT NULL;
